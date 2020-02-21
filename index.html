@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Next To Me</title>
+    
+    <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/zepp.css" />    
+    <link rel="stylesheet" href="css/themes/zepp.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <!-- <link rel="stylesheet" href="css/datebox.css" />   //-->
+    <!-- <link rel="stylesheet" href="css/themes/smoothness/jquery-ui.css"> //-->  
+     
+    <link rel="shortcut icon" href="favicon.ico">
+        
+    <script type="text/javascript" src="cordova.js"></script>
+    
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTlo_RaOg4iNTwvijPES-THe6yJBU97U0&libraries=places"></script> //-->    
+    <script src="js/spiderfier/oms.min.js"></script>
+    
+    <script src="js/jquery.js"></script>    
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    
+    <!-- <script type="text/javascript" src="http://cdn.jtsage.com/jtsage-datebox/4.2.3/jtsage-datebox-4.2.3.jqm.min.js"></script> //-->
+    <!-- <script type="text/javascript" src="http://cdn.jtsage.com/jtsage-datebox/i18n/jtsage-datebox.lang.utf8.js"></script> //-->
+    <!-- <script type="text/javascript" src="js/ui/jquery.ui.datepicker.js"></script> //-->
+    
+    <script src="js/zepp_settings.js"></script>
+    <script src="js/zepp_messages.js"></script>
+    <script src="js/zepp_session.js"></script>
+
+    <script src="js/zepp_controller_signin.js"></script>
+    <script src="js/zepp_controller_register.js"></script>
+    <script src="js/zepp_controller_password_reset.js"></script>
+    
+    <script src="js/zepp.js"></script>
+    <script src="js/zepp_core.js"></script>
+    <script src="js/zepp_language.js"></script>
+    
+    <script>
+    
+        //$(document).bind("mobileinit", function () {
+            $.mobile.defaultPageTransition = 'none';
+            $.mobile.ajaxEnabled = false;
+            //alert('ok');
+        //});
+    
+    </script>            
+    
+</head>
+
+<body>
+
+
+
+    <div style="display:none; z-index:2000; position:absolute; background:#000000; opacity:0.5; width:100%; height:200px; top:0px; left:0px;" id="save_values_area">Save Values Area</div>
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+    <div data-role="page" id="PAGE_ID_Splash">
+
+        <!-- <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <h1>ZEpp</h1>                        
+                        
+        </div>         //-->
+    
+        <div id="DIV_ID_IMG_Background"       class="zepp-header-splash"          style="width:100%; min-width:100%; max-width:100%; " /></div>
+        <div id="DIV_ID_IMG_Background_Logo"  class="zepp-header-splash-logo-en"  style="position:absolute;" /></div>
+        
+        <div role="main" class="ui-content">
+            
+            
+                        
+            <h2 style="margin-top:0px; margin-bottom:0px"><zepp id="Language_Splash_Title">Welcome to ZEpp!</zepp></h2>
+
+            <div style="position:absolute; left:30px; margin-top:-90px" id="DIV_ID_Flags">
+            
+            <img title="Sprache auf Deutsch &auml;ndern" onclick="fct_set_language('de')" style="cursor:pointer" src="img/language/de.png" width="40" />
+            <img title="Set language to English" onclick="fct_set_language('en')" style="cursor:pointer" src="img/language/en.png" width="40" />
+            </div>
+            
+            <p><b><zepp id="Language_Splash_Subtitle">It's a small world. Find out!</zepp></b></p>
+            
+            <p><zepp id="Language_Splash_Explanation">ZEpp (Next to me) finds people from your home town, working place or sports club that are next to your holiday location.</zepp></p>
+            <!-- This can be your holiday hotel or your event location. //-->
+            
+            <a href="#PAGE_ID_Login" class="ui-btn ui-btn-b ui-corner-all" data-transition="slide"><zepp id="Language_Splash_Login">Log In</zepp></a>
+            <a href="#PAGE_ID_Register" class="ui-btn ui-btn-b ui-corner-all" data-transition="slideup"><zepp id="Language_Splash_Register">Register</zepp></a>
+            
+            <br><br><br>
+
+        </div>
+                
+        <!-- <div style="height:30px; width:100%" class="zepp-fade">                    
+        </div>  //-->
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"   /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+          
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+    <div data-role="page" id="PAGE_ID_Login">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <a href="#PAGE_ID_Splash" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-arrow-l ui-btn-icon-notext" data-transition="slide" data-direction="reverse">Home</a>
+            <h1>ZEpp</h1>                        
+                        
+        </div>        
+    
+        <div role="main" class="ui-content">
+          
+            <p align="center">
+                <img width="70" style="margin:0.3em" src="img/individuals/user-mila-moa-70x70.jpg">
+                <img width="70" style="margin:0.3em" src="img/individuals/user-alex-ross-70x70.jpg">
+                <img width="70" style="margin:0.3em" src="img/individuals/user-july-mao-70x70.jpg">                
+            </p>
+            
+            <h2>Login</h2>
+                        
+            <form data-ajax="false" name="FRM_Login" id="FRM_Login">
+
+                <input type="hidden" name="login_request" value="1">
+                <input type="hidden" name="security_code" value="sdf123">
+                
+                <div id="DIV_ID_Login_Error" class="zepp-invisible"></div>
+                
+                <label for="ZEpp_Form_Username"></label>
+                <input placeholder="E-Mail Address" type="email" name="ZEpp_Form_Username" id="ZEpp_Form_Username" value="">
+
+                <label for="ZEpp_Form_Password"></label>
+                <input placeholder="Password" type="password" name="ZEpp_Form_Password" id="ZEpp_Form_Password" value="" autocomplete="off">
+                
+                <fieldset style="display:none" data-role="controlgroup">                
+                    <label for="ZEpp_Form_Keep_Signed_In">Keep me signed in</label>
+                    <input type="checkbox" name="ZEpp_Form_Keep_Signed_In" id="ZEpp_Form_Keep_Signed_In" checked value="1">
+                </fieldset>
+                
+                <!-- onclick="fct_do_Login()"  //-->
+                <button id="BTN_ID_Login" type="button" data-theme="b" value="submit-value"><zepp id="Language_Login_Button">Login</zepp></button>
+                                                
+                
+                <p><a href="#PAGE_ID_Password_Reset" data-transition="slide" ><zepp id="Language_Login_PW_Forgot">Forgot your password?</zepp></a></p>
+                <p><a href="#PAGE_ID_Register" data-transition="slideup"><zepp id="Language_Login_Register">Register new user</zepp></a></p>
+
+            </form>
+            
+            <br><br><br><br>
+
+        </div>
+                
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+          
+
+    </div>
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+    
+    
+    <div data-role="page" id="PAGE_ID_Register">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <a data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-arrow-l ui-btn-icon-notext" data-transition="slidedown">Home</a>            
+
+            <h1>ZEpp</h1>                        
+                        
+        </div>        
+    
+        <div role="main" class="ui-content">
+            
+            <p align="center">
+                <img width="70" style="margin:0.3em" src="img/individuals/user-alex-ross-70x70.jpg">
+                <img width="70" style="margin:0.3em" src="img/individuals/user-july-mao-70x70.jpg">
+                <img width="70" style="margin:0.3em" src="img/individuals/user-john-doe-70x70.jpg">
+            </p>
+               
+            <h2><zepp id="Language_Register_Title">Register</zepp></h2>
+            
+            <p><zepp id="Language_Register_Hint">Hint: You stay anonymous. Everybody is just represented by a First Name and a marker on a map.</zepp></p>
+
+            <form data-ajax="false" name="FRM_Register" id="FRM_Register">
+
+                <input type="hidden" name="register_request" value="1">
+                <input type="hidden" name="security_code" value="reg123">
+                
+                <div id="DIV_ID_Register_Error" class="zepp-invisible"></div>
+
+                <label for="ZEpp_Form_Register_Firstname"></label>
+                <input placeholder="Your First Name" type="text" name="ZEpp_Form_Register_Firstname" id="ZEpp_Form_Register_Firstname" value="">
+
+                <label for="ZEpp_Form_Register_Username"></label>
+                <input placeholder="E-Mail Address" type="email" name="ZEpp_Form_Register_Username" id="ZEpp_Form_Register_Username" value="">
+
+                <label for="ZEpp_Form_Register_Password"></label>
+                <input placeholder="Password" type="password" name="ZEpp_Form_Register_Password" id="ZEpp_Form_Register_Password" value="" autocomplete="off">
+                
+                <label for="ZEpp_Form_Register_Password_2"></label>
+                <input placeholder="Confirm Password" type="password" name="ZEpp_Form_Register_Password_2" id="ZEpp_Form_Register_Password_2" value="" autocomplete="off">
+                                
+                <a id="BTN_ID_Register" class="ui-btn ui-btn-b ui-corner-all"><zepp id="Language_Register_Button">Register</zepp></a>
+
+            </form>
+            
+            <br><br><br><br>
+
+        </div>
+                
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+          
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div data-role="page" id="PAGE_ID_Password_Reset">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <a href="#PAGE_ID_Login" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-icon-arrow-l ui-btn-icon-notext" data-transition="slide" data-direction="reverse">Home</a>
+            
+            <h1>ZEpp</h1>                        
+                        
+        </div>        
+    
+        <div role="main" class="ui-content">                        
+               
+            <h2><zepp id="Language_Reset_Title">Reset Your Password</zepp></h2>
+            
+            <div id="DIV_ID_Reset_Error" class="zepp-invisible"></div>
+
+            <label for="ZEpp_Password_Reset_Username"><zepp id="Language_Reset_E_Mail">Please enter your email address here</zepp></label>
+            <input type="email" placeholder="E-Mail Address" name="ZEpp_Password_Reset_Username" id="ZEpp_Password_Reset_Username" value="">
+            <a id="BTN_ID_Reset" class="ui-btn ui-btn-b ui-corner-all"><zepp id="Language_Reset_Button">Reset Password Now</zepp></a>
+            
+            <br><br><br><br>
+
+        </div>
+                
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+          
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div data-role="page" id="PAGE_ID_Provisional_Password">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <h1>ZEpp</h1>                        
+                        
+        </div>        
+    
+        <div role="main" class="ui-content">                        
+               
+            <h2><zepp id="Language_Create_E_Mail">Create A New Password</zepp></h2>
+            
+            <p><zepp id="Language_Create_Hint">Due to security reasons you have to change your temporary password directly. Please create a new one.</zepp></p>
+
+            <label for="ZEpp_Provisional_Password"><zepp id="Language_Create_Provisional_Pass">Provisional Password</zepp></label>
+            <input type="password" name="ZEpp_Provisional_Password" id="ZEpp_Provisional_Password" value="">
+            
+            <label for="ZEpp_New_Password"><zepp id="Language_Create_New_Password">New Password</zepp></label>
+            <input type="password" name="ZEpp_New_Password" id="ZEpp_New_Password" value="">
+            
+            <label for="ZEpp_New_Password_2"><zepp id="Language_Create_Confirm_Password">Confirm New Password</zepp></label>
+            <input type="password" name="ZEpp_New_Password_2" id="ZEpp_New_Password_2" value="">
+            
+            <a id="BTN_ID_Change" class="ui-btn ui-btn-b ui-corner-all"><zepp id="Language_Create_Button">Change Now</zepp></a>
+            
+            <br><br><br><br>
+
+        </div>
+                
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+          
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div data-role="page" id="PAGE_ID_Account_Locked">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <h1>ZEpp</h1>                        
+                        
+        </div>        
+    
+        <div role="main" class="ui-content">                        
+               
+            <h2><zepp id="Language_Locked_Title">Your Account is locked</zepp></h2>
+
+            <p><zepp id="Language_Locked_Contact_1">Please contact us</zepp> <a href="mailto:locked@nxto.me"><zepp id="Language_Locked_Contact_2">here</zepp></a> <zepp id="Language_Locked_Contact_3">to resolve this issue.</zepp></p>
+            
+            <br><br><br><br>
+
+        </div>
+                
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div data-role="page" id="PAGE_ID_Reset_Successful">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <h1>ZEpp</h1>                        
+                        
+        </div>        
+    
+        <div role="main" class="ui-content">                        
+               
+            <h2><zepp id="Language_Resetted_Title">Your Password has been resetted successfully</zepp></h2>
+
+            <p><zepp id="Language_Resetted_Text">We sent you an email with a new password to your email address. Please check your inbox and use the temporary password for the login.</zepp></p>
+            <div><a href="index.html#PAGE_ID_Login" class="ui-btn ui-corner-all ui-shadow ui-btn-b"><zepp id="Language_Resetted_Button">OK</zepp></a></div>
+            
+            <br><br><br><br>
+
+        </div>
+                
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+
+    </div>
+    
+    
+    
+    
+    
+    
+    <div data-role="page" id="PAGE_ID_Register_Successful">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                                              
+            
+            <h1>ZEpp</h1>                        
+                        
+        </div>        
+    
+        <div role="main" class="ui-content">                        
+               
+            <h2><zepp id="Language_Successful_Title">Your Registration was successful</zepp></h2>
+
+            <p><zepp id="Language_Successful_Text">You can now login into ZEpp!</zepp></p>
+            <!-- <h3>Now, please confirm your Email Address</h3>
+            
+            <p>We sent you an email with a digit code to verify your email address. Please check your inbox and enter the code here.</p>
+                        
+            <label for="ZEpp_Confirm_Code">Digit Code</label>
+            <input type="text" placeholder="Enter the Digit Code here" name="ZEpp_Confirm_Code" id="ZEpp_Confirm_Code" value="">
+            
+            <div><a id="BTN_ID_Confirm" href="index.html#PAGE_ID_Login" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Confirm</a></div>
+
+            <br><br>
+            <p><a id="BTN_ID_Confirm" href="index.html#PAGE_ID_Login">Skip and confirm later</a></p>
+             //-->
+             
+            <div><a id="BTN_ID_Back_To_Login" href="index.html#PAGE_ID_Login" class="ui-btn ui-corner-all ui-shadow ui-btn-b"><zepp id="Language_Successful_Button">Go to Login Page</zepp></a></div>
+            
+            <br><br><br><br>
+
+        </div>
+                        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    <div data-role="page" id="PAGE_ID_ZEpp">
+
+        <div id="DIV_ID_Header" data-include="data_header" data-tap-toggle="false" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">                      
+                        
+            <h1>ZEpp</h1>                        
+            
+            <a href="#DIV_ID_Options_Menu"  class="ui-btn ui-icon-gear ui-btn-right ui-btn-icon-notext ui-corner-all">Options</a>
+            <a href="index.html"            class="ui-btn ui-icon-home ui-btn-left ui-btn-icon-notext ui-corner-all">Home</a>
+                        
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_home_and_refresh()" class="ui-btn-active">Map</a></li>                        
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_locations_and_refresh()" class="">Vacations</a></li>                        
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_origins_and_refresh()"   class="">Roots</a></li>
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_contacts_and_refresh()"  class="">Contacts</a></li>                        
+                </ul>
+            </div>            
+            
+        </div>        
+    
+        <div role="main" class="ui-content">
+          
+            <h2><zepp id="Language_Landing_Page_Title">ZEpp - The Holiday App</zepp></h2>
+            
+            <p><zepp id="Language_Landing_Page_Text">With ZEpp you see people from your home town, work or sports club that are located right next to you - wherever you are.</zepp></p>
+
+            <br>
+            
+            <div id="DIV_ID_My_actual_locations">
+                <zepp id="Language_Landing_Page_Logged_In">You are logged in. Loading Map</zepp>
+                &nbsp;
+                <img src="img/ajax-loader.gif" />
+            </div>
+                                                                    
+            <br><br><br><br>
+
+        </div>
+                
+        
+        
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"   /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"     /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/instagram.png"  /></a></p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+                    
+        <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="DIV_ID_Options_Menu">                        
+            <img src="img/options.jpg" style="width:100%" />            
+            <div class="ui-content">                
+                <h2><zepp id="Language_Options_Title">Options</zepp></h2>                
+                <p><acronym id="ZEpp_Session_Info"></acronym></p>                                                
+                <button id="BTN_ID_Edit_Profile" type="button" data-theme="b"><zepp id="Language_Options_Edit_Profile">Edit Profile</zepp></button>                
+                <button id="BTN_ID_Change_Password" type="button" data-theme="b"><zepp id="Language_Options_Change_Password">Change Password</zepp></button>
+                <a href="#Popup_Logout" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all"><zepp id="Language_Options_Logout">Logout</zepp></a>                
+            </div>                                
+        </div>
+            
+        <div data-role="popup" id="Popup_Logout" data-dismissible="false" style="max-width:400px;">
+            <div role="main" class="ui-content">
+                <h3 class="mc-text-danger"><zepp id="Language_Logout_Title">Are you sure?</zepp></h3>
+                <p><zepp id="Language_Logout_Question">Do you really want to log out of ZEpp?</zepp></p>
+                <button id="BTN_ID_Logout" type="button" data-theme="b"><zepp id="Language_Logout_Yes">Yes, please!</zepp></button>
+                <div><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b"><zepp id="Language_Logout_No">No, I want to stay</zepp></a></div>
+            </div>
+        </div>                
+
+    </div>
+    
+    
+    
+    
+    
+                              
+
+</body>
+
+</html>

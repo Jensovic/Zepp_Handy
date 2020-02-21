@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Next To Me</title>
+    
+    <link rel="stylesheet" href="css/themes/default/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="css/zepp.css" />
+    <link rel="stylesheet" href="css/themes/zepp.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="css/datebox.css" />  
+    <link rel="stylesheet" href="css/themes/smoothness/jquery-ui.css">  
+     
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTlo_RaOg4iNTwvijPES-THe6yJBU97U0&libraries=places"></script> //-->
+    <script src="js/spiderfier/oms.min.js"></script>
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" src="js/jtsage-datebox-4.2.3.jqm.min.js"></script>
+  	<script type="text/javascript" src="js/i18n/jtsage-datebox.lang.utf8.js"></script>
+    <script type="text/javascript" src="js/ui/jquery.ui.datepicker.js"></script>
+
+    <script src="js/zepp_settings.js"></script>
+    <script src="js/zepp_messages.js"></script>
+    <script src="js/zepp_session.js"></script>
+
+    <script src="js/zepp_controller_signin.js"></script>
+    <script src="js/zepp_controller_register.js"></script>
+    <script src="js/zepp_controller_password_reset.js"></script>
+
+    <script src="js/zepp.js"></script>
+    <script src="js/zepp_core.js"></script>
+    <script src="js/zepp_language.js"></script>
+
+    <script>
+
+        //$(document).bind("mobileinit", function () {
+            $.mobile.defaultPageTransition = 'none';
+            $.mobile.ajaxEnabled = false;
+            //alert('ok');
+        //});
+
+    </script>
+
+    <script>
+
+        var session = ZEpp.Session.getInstance().get(), today = new Date();
+
+        if (session && session.User_ID>0 && new Date(session.expirationDate).getTime() > today.getTime()) {
+            console.log('Session i.O.');
+            console.log('Session ID: ' + session.sessionId);
+            console.log('Session Securekey: ' + session.User_Securekey);
+            console.log('Session Assistant: ' + session.User_Assistant_OK);
+            console.log('Session User-ID: ' + session.User_ID);
+            console.log('Session User E-Mail: ' + session.User_E_Mail);
+            JS_Session_ID = session.sessionId;
+        }
+
+        var Assistant_completed = window.localStorage.getItem('Assistant_completed');
+        var Temporary_Password = window.localStorage.getItem('Temporary_Password');
+
+        console.log('Actual value Assistant_completed: ' + Assistant_completed);
+
+        if(Assistant_completed == 0) {
+            document.location.href = "assistant.html";
+            //console.log('I would now go to the assistant');
+        }
+        
+        if(Temporary_Password == 1) {
+            document.location.href = "change_password.html";
+            //console.log('I would now go to the assistant');
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div style="display:none; z-index:2000; position:absolute; background:#000000; opacity:0.5; width:100%; height:200px; top:0px; left:0px;" id="save_values_area">Save Values Area</div>
+
+    <div data-role="page" id="PAGE_ID_Application">
+
+        <div id="DIV_ID_Header" data-tap-toggle="false" data-include="data_header" data-role="header" class="zepp-header" data-theme="a" data-position="fixed">
+
+            <h1>ZEpp</h1>
+
+            <a href="#DIV_ID_Options_Menu"  class="ui-btn ui-icon-gear ui-btn-right ui-btn-icon-notext ui-corner-all">Options</a>
+            <a href="application.html"    class="ui-btn ui-icon-home ui-btn-left ui-btn-icon-notext ui-corner-all">Home</a>
+
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_home_and_refresh()" class="ui-btn-active"><zepp id="Language_Menu_Home">Home</zepp></a></li>
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_locations_and_refresh()" class=""><zepp id="Language_Menu_Vacations">Vacations</zepp></a></li>
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_origins_and_refresh()"   class=""><zepp id="Language_Menu_Roots">Roots</zepp></a></li>
+                    <li><a style="padding-left:3px!important; padding-right:3px!important;" href="#" onclick="fct_goto_contacts_and_refresh()"  class=""><zepp id="Language_Menu_Contacts">Chats</zepp></a></li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <div role="main" class="ui-content">
+
+            <h2><zepp id="Language_Home_Title">ZEpp - The Holiday App</zepp></h2>
+
+            <p><zepp id="Language_Home_Slogan">With ZEpp you see people from your home town, work or sports club that are located right next to you - wherever you are.</zepp></p>
+
+            <!-- <p>You can add more Roots to see more people with the same workplace or interests near you.</p> //-->
+
+
+            <div id="DIV_ID_Actions"><img src="img/ajax-loader.gif" /></div>
+            
+
+            <script>
+                console.log('Actions start');
+                fct_get_actions();
+                console.log('Actions done');
+            </script>
+
+            <br><br><br><br>
+
+        </div>
+
+        <div class="ui-bar zepp-footer_1"> 
+        
+            <div class="zepp-footer_A">
+                <h4><zepp id="Language_Footer_Title">ZEpp - The Holiday App</zepp></h4>
+                <p><zepp id="Language_Footer_Text1">Copyright &copy; 2020 by ZEpp&trade;<br>All rights reserved.</zepp></p>
+                <p><zepp id="Language_Footer_Text2"></zepp></p>
+                <br />
+                <p><a href="impressum.html" style="color:#000000"><zepp id="Language_Footer_Terms">Legal notice</zepp></a></p> 
+                <p><a href="datenschutz.html" style="color:#000000"><zepp id="Language_Footer_Protection">Data protection</zepp></a></p> 
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_B">
+                <h4><zepp id="Language_Social_Media">Follow us on social media</zepp></h4>
+                <p><a target="_blank" href="https://twitter.com/GetZEpp"      ><img style="cursor:pointer" width="36" src="img/social/twitter.png"    /></a>
+                   <a target="_blank" href="https://www.facebook.com/zepp"    ><img style="cursor:pointer" width="36" src="img/social/facebook.png"  /></a>
+                   <a target="_blank" href="https://www.tumblr.com/blog/zepp" ><img style="cursor:pointer" width="36" src="img/social/tumblr.png"    /></a>
+                   <a target="_blank" href="https://www.instagram.com/zepp"   ><img style="cursor:pointer" width="36" src="img/social/instagram.png" /></a></p>
+                </p>
+                <br />
+            </div>                               
+            
+            <div class="zepp-footer_C">
+                <h4><zepp id="Language_Contact_Title">Get in contact with us</zepp></h4>
+                <p><a href="https://nxto.me/_off/contactform.html" style="color:#000000"><zepp id="Language_Contact_Form">Contact Form</zepp></a></p>
+                <br />
+            </div>   
+            
+        </div> 
+
+        <div data-role="panel" data-position="right" data-position-fixed="true" data-display="overlay" data-theme="a" id="DIV_ID_Options_Menu">
+            <img src="img/options.jpg" style="width:100%" />
+            <div class="ui-content">
+                <h2><zepp id="Language_Options_Title">Options</zepp></h2>
+                <p><acronym id="ZEpp_Session_Info"></acronym></p>
+                <button id="BTN_ID_Edit_Profile" type="button" data-theme="b"><zepp id="Language_Options_Edit_Profile">Edit Profile</zepp></button>
+                <button id="BTN_ID_Change_Password" type="button" data-theme="b"><zepp id="Language_Options_Change_Password">Change Password</zepp></button>
+                <a href="#Popup_Logout" data-rel="popup" data-transition="pop" data-position-to="window" id="btn-submit" class="ui-btn ui-btn-b ui-corner-all"><zepp id="Language_Options_Logout">Logout</zepp></a>
+            </div>
+        </div>
+
+        <div data-role="popup" id="Popup_Logout" data-dismissible="false" style="max-width:400px;">
+            <div role="main" class="ui-content">
+                <h3 class="mc-text-danger"><zepp id="Language_Logout_Title">Logout</zepp></h3>
+                <p><zepp id="Language_Logout_Question">Do you really want to log out of ZEpp?</zepp></p>
+                <button id="BTN_ID_Logout" type="button" data-theme="b"><zepp id="Language_Logout_Yes">Yes, please!</zepp></button>
+                <div><a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-b"><zepp id="Language_Logout_No">No, I want to stay</zepp></a></div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

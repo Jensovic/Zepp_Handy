@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<widget id="com.jensovic.zepp.app" version="0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    
+    <name>ZEpp</name>
+    
+    <description>It's a small world</description>
+    
+    <author email="jens@horing.com" href="http://horing.com">Jens Horing | Horing interactive</author>
+    
+    <content src="index.html" />
+    
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-targetSdkVersion" value="22" />
+    <preference name="android-build-tool" value="gradle" />    
+    
+    <!-- <preference name="orientation" value="portrait" /> //-->
+    <preference name="fullscreen" value="false" />
+    
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="4000" /> 
+    <preference name="FadeSplashScreenDuration" value="1000"/>
+    
+    
+    <platform name="android">
+    
+        <icon                   src="www/res/Android/res/drawable/icon.png" />          <!-- default 96x96 //-->
+        
+        <icon density="ldpi"    src="www/res/Android/res/drawable-ldpi/icon.png" />     <!-- 36x36   //-->
+        <icon density="mdpi"    src="www/res/Android/res/drawable-mdpi/icon.png" />     <!-- 48x48   //-->
+        <icon density="hdpi"    src="www/res/Android/res/drawable-hdpi/icon.png" />     <!-- 72x72   //-->
+        <icon density="xhdpi"   src="www/res/Android/res/drawable-xhdpi/icon.png" />    <!-- 96x96   //-->
+        <icon density="xxhdpi"  src="www/res/Android/res/drawable-xxhdpi/icon.png" />   <!-- 144x144 //-->
+        <icon density="xxxhdpi" src="www/res/Android/res/drawable-xxxhdpi/icon.png" />  <!-- 192x192 //-->
+        
+        <splash                         src="www/res/Android/res/drawable/screen.png" />
+        
+        <splash density="land-ldpi"     src="www/res/Android/res/drawable-land-ldpi/screen.png" />
+        <splash density="land-mdpi"     src="www/res/Android/res/drawable-land-mdpi/screen.png" />
+        <splash density="land-hdpi"     src="www/res/Android/res/drawable-land-hdpi/screen.png" />
+        <splash density="land-xhdpi"    src="www/res/Android/res/drawable-land-xhdpi/screen.png" />
+        <splash density="land-xxhdpi"   src="www/res/Android/res/drawable-land-xxhdpi/screen.png" />
+        <splash density="land-xxxhdpi"  src="www/res/Android/res/drawable-land-xxxhdpi/screen.png" />
+        
+        <splash density="port-ldpi"     src="www/res/Android/res/drawable-ldpi/screen.png" />
+        <splash density="port-mdpi"     src="www/res/Android/res/drawable-mdpi/screen.png" />
+        <splash density="port-hdpi"     src="www/res/Android/res/drawable-hdpi/screen.png" />
+        <splash density="port-xhdpi"    src="www/res/Android/res/drawable-xhdpi/screen.png" />
+        <splash density="port-xxhdpi"   src="www/res/Android/res/drawable-xxhdpi/screen.png" />
+        <splash density="port-xxxhdpi"  src="www/res/Android/res/drawable-xxxhdpi/screen.png" />
+                        
+    </platform>
+    
+    <platform name="ios">
+    
+        <icon height="57"   width="57"  platform="ios" src="www/res/iOS/Resources/icons/Icon.png"  />
+        
+        <icon height="114"  width="114" platform="ios" src="www/res/iOS/Resources/icons/Icon@2x.png" />
+        <icon height="40"   width="40"  platform="ios" src="www/res/iOS/Resources/icons/Icon-40.png"  />
+        <icon height="80"   width="80"  platform="ios" src="www/res/iOS/Resources/icons/Icon-40@2x.png"  />
+        <icon height="50"   width="50"  platform="ios" src="www/res/iOS/Resources/icons/Icon-50.png"  />
+        <icon height="100"  width="100" platform="ios" src="www/res/iOS/Resources/icons/Icon-50@2x.png"  />
+        <icon height="60"   width="60"  platform="ios" src="www/res/iOS/Resources/icons/Icon-60.png"  />
+        <icon height="120"  width="120" platform="ios" src="www/res/iOS/Resources/icons/Icon-60@2x.png"  />
+        <icon height="180"  width="180" platform="ios" src="www/res/iOS/Resources/icons/Icon-60@3x.png"  />
+        <icon height="72"   width="72"  platform="ios" src="www/res/iOS/Resources/icons/Icon-72.png"  />
+        <icon height="144"  width="144" platform="ios" src="www/res/iOS/Resources/icons/Icon-72@2x.png"  />
+        <icon height="76"   width="76"  platform="ios" src="www/res/iOS/Resources/icons/Icon-76.png"  />
+        <icon height="152"  width="152" platform="ios" src="www/res/iOS/Resources/icons/Icon-76@2x.png"  />
+        <icon height="167"  width="167" platform="ios" src="www/res/iOS/Resources/icons/Icon-167.png"  />
+        <icon height="29"   width="29"  platform="ios" src="www/res/iOS/Resources/icons/Icon-small.png"  />
+        <icon height="58"   width="58"  platform="ios" src="www/res/iOS/Resources/icons/Icon-small@2x.png"  />
+        <icon height="87"   width="87"  platform="ios" src="www/res/iOS/Resources/icons/Icon-small@3x.png"  />
+    
+        <splash height="750"  width="768"   platform="ios" src="www/res/iOS/Resources/splash/Default.png"  />
+        <splash height="960"  width="640"   platform="ios" src="www/res/iOS/Resources/splash/Default@2x~iphone_640x960.png"  />
+        <splash height="750"  width="1536"  platform="ios" src="www/res/iOS/Resources/splash/Default~ipad.png"  />        
+        <splash height="480"  width="320"   platform="ios" src="www/res/iOS/Resources/splash/Default~iphone.png"  />
+        <splash height="1136" width="640"   platform="ios" src="www/res/iOS/Resources/splash/Default-568h@2x~iphone_640x1136.png"  />
+        
+        <splash height="750"  width="1334"  platform="ios" src="www/res/iOS/Resources/splash/Default-750@2x~iphone6-landscape_1334x750.png"  />
+        <splash height="1334" width="750"   platform="ios" src="www/res/iOS/Resources/splash/Default-750@2x~iphone6-portrait_750x1334.png"  />
+                
+        <splash height="1242" width="2208"  platform="ios" src="www/res/iOS/Resources/splash/Default-1242@3x~iphone6s-landscape_2208x1242.png"  />
+        <splash height="2208" width="1242"  platform="ios" src="www/res/iOS/Resources/splash/Default-1242@3x~iphone6s-portrait_1242x2208.png"  />
+
+        <splash height="1496" width="2048"  platform="ios" src="www/res/iOS/Resources/splash/Default-Landscape@2x~ipad_2048x1496.png"  />
+        <splash height="1536" width="2048"  platform="ios" src="www/res/iOS/Resources/splash/Default-Landscape@2x~ipad_2048x1536.png"  />
+
+        <splash height="748"  width="1024"  platform="ios" src="www/res/iOS/Resources/splash/Default-Landscape~ipad_1024x748.png"  />
+        <splash height="768"  width="1024"  platform="ios" src="www/res/iOS/Resources/splash/Default-Landscape~ipad_1024x768.png"  />
+
+        <splash height="2008" width="1536"  platform="ios" src="www/res/iOS/Resources/splash/Default-Portrait@2x~ipad_1536x2008.png"  />
+        <splash height="2048" width="1536"  platform="ios" src="www/res/iOS/Resources/splash/Default-Portrait@2x~ipad_1536x2048.png"  />
+        <splash height="1024" width="768"   platform="ios" src="www/res/iOS/Resources/splash/Default-Portrait~ipad_768x1024.png"  />
+        
+        
+        
+    </platform>
+    
+    <platform name="wp8">
+    
+        <icon height="99"   width="99"  platform="wp8" src="www/res/WindowsPhone/Icons/ApplicationIcon-99x99.png"  />
+        <icon height="159"  width="159" platform="wp8" src="www/res/WindowsPhone/Icons/Background.png"  />
+    
+        <splash height="1280" width="768" platform="wp8" src="www/res/WindowsPhone/Splashscreens/Splashscreen.png"  />
+        
+    </platform>
+    
+    <platform name="windows">
+    
+        <icon height="150"  width="150" platform="windows" src="www/res/WindowsStore/Icons/ApplicationIcon-150x150.png"  />
+        <icon height="30"   width="30"  platform="windows" src="www/res/WindowsStore/Icons/ApplicationIcon-30x30.png"  />
+        <icon height="50"   width="50"  platform="windows" src="www/res/WindowsStore/Icons/ApplicationIcon-50x50.png" />
+      
+        <splash height="300" width="620"  platform="windows" src="www/res/WindowsStore/Spashscreens/Splashscreen-620x300.png"  />
+        
+    </platform>
+    
+    
+    <access origin="*" />
+    
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    
+    <allow-navigation href="*://*.nxto.me/*" />
+    <allow-navigation href="*://*.googleapis.com/*" />    
+    <allow-navigation href="*://*.google.com/*" />    
+    <allow-navigation href="*://*.gstatic.com/*" />    
+    <allow-navigation href="*://*.googleusercontent.com/*" />    
+    
+    <!-- <allow-navigation href="*" /> //-->        
+    
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+
+    <engine name="android" spec="~6.3.0" />
+    <engine name="ios" spec="~4.5.3" />
+
+    
+    
+    <preference name="permissions" value="none"/>
+    
+    
+    <!-- <plugin name="cordova-plugin-battery-status" spec="~1.2.4" /> //-->
+    <plugin name="cordova-plugin-camera" spec="~2.4.1" />
+    <!-- <plugin name="cordova-plugin-media-capture" spec="~1.4.3" /> //-->
+    <plugin name="cordova-plugin-device" spec="~1.1.6" />
+    <!-- <plugin name="cordova-plugin-dialogs" spec="~1.3.3" /> //-->
+    <!-- <plugin name="cordova-plugin-file" spec="~4.3.3" />  //-->
+    <!-- <plugin name="cordova-plugin-geolocation" spec="~2.4.3" /> //-->
+    <!-- <plugin name="cordova-plugin-globalization" spec="~1.0.7" /> //-->
+    <!-- <plugin name="cordova-plugin-inappbrowser" spec="~1.7.1" /> //-->
+    <!-- <plugin name="cordova-plugin-network-information" spec="~1.3.3" /> //-->
+    <!-- <plugin name="cordova-plugin-vibration" spec="~2.1.5" /> //-->
+    <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
+    <plugin name="cordova-plugin-android-permissions" spec="^1.0.0" />    
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="^6.0.4">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="Scanning QR-Codes" />
+    </plugin>    
+    <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
+    <plugin name="cordova-plugin-file" spec="4.3.3"/>
+    <plugin name="cordova-plugin-file-transfer" spec="1.6.3"/>
+    
+    <!-- <plugin name="cordova-plugin-geolocation" spec="^3.0.0" /> //-->
+    <plugin name="cordova-plugin-badge" spec="^0.8.5" />
+    <plugin name="cordova-plugin-globalization" spec="^1.0.8" />            
+    
+    <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
+    <plugin name="cordova.plugins.diagnostic" spec="^3.7.2" />
+        
+</widget>
