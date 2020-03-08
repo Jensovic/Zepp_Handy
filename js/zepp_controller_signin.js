@@ -166,11 +166,11 @@ ZEpp.SignInController.prototype.onSignInCommand = function () {
                 // Go to main menu.
                 //$.mobile.ajaxEnabled = false;
                 //$.mobile.navigate("application.html");
-                if(resp.UserInfo.User_Assistant_OK == 1) {
+                //if(resp.UserInfo.User_Assistant_OK == 1) {
                     document.location.href = "application.html";
-                } else {
-                    document.location.href = "assistant.html";
-                }
+                //} else {
+                //    document.location.href = "assistant.html";
+                //}
                 return;
                 
             } else {
