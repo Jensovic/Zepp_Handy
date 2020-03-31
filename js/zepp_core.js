@@ -1390,7 +1390,44 @@ function fct_set_individual_preferences(Set_Profile_Code) {
 
 
 
+function fct_refresh_counter(Category_ID) {
 
+    var str_day   = $('#ACR_ID_Day_' + Category_ID)[0].innerHTML;
+    var str_month = $('#ACR_ID_Month_' + Category_ID)[0].innerHTML;
+    var str_year  = $('#ACR_ID_Year_' + Category_ID)[0].innerHTML;
+    
+    var str_hour    = $('#ACR_ID_Hour_' + Category_ID)[0].innerHTML;
+    var str_minute  = $('#ACR_ID_Minute_' + Category_ID)[0].innerHTML;
+    var str_second  = $('#ACR_ID_Second_' + Category_ID)[0].innerHTML;
+            
+    var t1 = new Date(str_year, (str_month-1), str_day, str_hour, str_minute, str_second);
+    //console.log(t1);
+    var t2 = new Date();
+    //console.log(t2);
+
+    var dif = t1.getTime() - t2.getTime();
+    
+    var Seconds_from_T1_to_T2 = dif / 1000;
+    var Seconds_Between_Dates = Math.abs(Seconds_from_T1_to_T2);
+    
+    Seconds_Between_Dates = Math.floor(Seconds_Between_Dates);
+    
+    var hours = Math.floor(Seconds_Between_Dates / 60 / 60);
+    var minutes = Math.floor(Seconds_Between_Dates / 60) - (hours * 60);
+    var seconds = Seconds_Between_Dates % 60;
+
+    var hours_f = hours.toString().padStart(2, '0');
+    var minutes_f = minutes.toString().padStart(2, '0');
+    var seconds_f = seconds.toString().padStart(2, '0');
+    
+    var formatted =  hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+    
+    //console.log(formatted);
+    
+    //var dif = Date.parse(MM + " " + DD + ", " + YYYY) - Date.parse(NN + " " + EE + ", " + ZZZZ);
+
+    $('#ACR_ID_Category_' + Category_ID)[0].innerHTML = formatted;
+}
 
 
 
@@ -1443,11 +1480,14 @@ function fct_toggle_category(Individual_ID, Category_ID) {
             
             $('#' + str_ID_Category).removeClass().addClass("ui-btn ui-btn-b");   
             
+            $('#ACR_Seit_' + int_ID_Category).hide();
+                        
             $('#ACR_ID_Category_' + int_ID_Category)[0].innerHTML = '';       
             
         }
         
         $("#BTN_ID_Category_" + Category_ID).removeClass().addClass("ui-btn ui-btn-b ui-btn-active");   
+        $('#ACR_Seit_' + Category_ID).show();
         
         $.ajaxQueue({
             url:  ZEpp.Settings.ServerUrl + '/_app_api/set_action.php',
